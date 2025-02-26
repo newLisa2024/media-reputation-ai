@@ -1,0 +1,15 @@
+Текст: A closer look at water-splitting's solar fuel potential
+Тональность: {'label': '4 stars', 'score': 0.40231552720069885}
+
+Текст: An irresistible scent makes locusts swarm, study finds
+Тональность: {'label': '1 star', 'score': 0.3903985917568207}
+
+Текст: Artificial intelligence warning: AI will know us better than we know ourselves
+Тональность: {'label': '5 stars', 'score': 0.34173768758773804}
+
+Текст: Glaciers Could Have Sculpted Mars Valleys: Study
+Тональность: {'label': '3 stars', 'score': 0.31448090076446533}
+
+Текст: Perseid meteor shower 2020: What time and how to see the huge bright FIREBALLS over UK again tonight
+Тональность: {'label': '5 stars', 'score': 0.43921878933906555}
+

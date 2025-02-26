@@ -1,0 +1,34 @@
+import pandas as pd
+
+
+def load_data():
+    """
+    Функция для загрузки CSV-файла в DataFrame.
+    Меняем sep=';' (по скриншоту видно, что разделитель - точка с запятой).
+    """
+    df = pd.read_csv('data/news_dataset.csv', sep=';', encoding='utf-8')
+    return df
+
+
+def analyze_data():
+    """
+    Базовый анализ: вывод первых строк, информация о датасете, пропуски.
+    """
+    df = load_data()
+
+    print("Первые 5 строк датасета:")
+    print(df.head())
+
+    print("\nИнформация о датасете:")
+    print(df.info())
+
+    print("\nПропуски по столбцам:")
+    print(df.isnull().sum())
+
+
+# Если запустить файл напрямую (python analysis.py), выполнится analyze_data()
+if __name__ == "__main__":
+    analyze_data()
+
+
+

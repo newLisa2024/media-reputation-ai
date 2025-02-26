@@ -1,0 +1,5 @@
+(0, '0.019*"market" + 0.019*"2020" + 0.011*"global" + 0.009*"new" + 0.006*"forecast" + 0.006*"–" + 0.006*"analysis" + 0.005*"police" + 0.005*"industry" + 0.005*"players"')
+(1, '0.007*"city" + 0.006*"star" + 0.005*"face" + 0.004*"fans" + 0.004*"makes" + 0.003*"champions" + 0.003*"masks" + 0.003*"quarter" + 0.003*"stocks" + 0.003*"back"')
+(2, '0.005*"positive" + 0.005*"new" + 0.005*"first" + 0.004*"former" + 0.004*"galaxy" + 0.004*"claims" + 0.004*"need" + 0.004*"says" + 0.003*"2" + 0.003*"20"')
+(3, '0.009*"growth" + 0.007*"says" + 0.006*"trump" + 0.005*"call" + 0.005*"size" + 0.005*"us" + 0.004*"court" + 0.004*"win" + 0.004*"study" + 0.004*"future"')
+(4, '0.036*"covid19" + 0.024*"coronavirus" + 0.018*"new" + 0.012*"cases" + 0.007*"us" + 0.007*"man" + 0.007*"vaccine" + 0.006*"live" + 0.005*"league" + 0.005*"says"')
