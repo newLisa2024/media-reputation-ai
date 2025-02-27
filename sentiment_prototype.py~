@@ -1,0 +1,62 @@
+import os
+import pandas as pd
+from transformers import pipeline
+import matplotlib.pyplot as plt
+
+
+def run_sentiment_prototype():
+    """
+    Простой прототип анализа тональности:
+    1. Загружает данные из CSV (берём заголовки).
+    2. Анализирует тональность первых N заголовков.
+    3. Сохраняет результат в CSV.
+    4. Строит диаграмму распределения.
+    """
+
+    # Создадим папку results, если её нет
+    os.makedirs('../results', exist_ok=True)
+
+    # 1. Загрузка данных
+    df = pd.read_csv('../data/news_dataset.csv', sep=';', encoding='utf-8')
+    df = df[df['title'].notnull()]  # убираем пустые заголовки
+
+    # Для демонстрации возьмём только первые 100 заголовков (чтобы не ждать долго)
+    df_sample = df.head(100).copy()
+
+    # 2. Анализ тональности
+    # Модель для многоязычного анализа тональности
+    sentiment_pipeline = pipeline("sentiment-analysis",
+                                  model="nlptown/bert-base-multilingual-uncased-sentiment")
+
+    sentiments = []
+    for text in df_sample['title']:
+        result = sentiment_pipeline(text[:512])[0]
+        # [:512] - ограничение длины текста, чтобы не было ошибок при слишком длинном тексте
+        sentiments.append(result['label'])
+
+    # Записываем результат в новый столбец
+    df_sample['sentiment'] = sentiments
+
+    # 3. Сохраняем результат в CSV
+    output_csv = '../results/sentiment_prototype_results.csv'
+    df_sample.to_csv(output_csv, index=False, encoding='utf-8')
+    print(f"Результаты анализа тональности сохранены в {output_csv}")
+
+    # 4. Строим диаграмму распределения тональностей
+    sentiment_counts = df_sample['sentiment'].value_counts()
+    plt.figure(figsize=(6, 4))
+    sentiment_counts.plot(kind='bar', color=['green', 'red', 'blue', 'orange', 'purple'])
+    plt.title('Распределение тональностей (прототип)')
+    plt.xlabel('Тональность')
+    plt.ylabel('Количество')
+    plt.tight_layout()
+
+    # Сохраняем диаграмму
+    output_png = '../results/sentiment_prototype_distribution.png'
+    plt.savefig(output_png)
+    print(f"Диаграмма тональностей сохранена в {output_png}")
+    plt.show()
+
+
+if __name__ == "__main__":
+    run_sentiment_prototype()
